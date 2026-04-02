@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Support — GetUnstuck</title>
+<meta name="description" content="GetUnstuck support — common questions and how to get help.">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Barlow:wght@400;500;600&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+:root { --black: #080808; --white: #F5F5F0; --acid: #CCFF00; --grey: #1A1A1A; --grey-mid: #2E2E2E; --grey-light: #6B6B6B; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--black); color: var(--white); font-family: 'Barlow', sans-serif; line-height: 1.7; }
+
+nav { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 2.5rem; border-bottom: 1px solid var(--grey-mid); }
+.nav-logo { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 1.4rem; color: var(--white); text-decoration: none; }
+.nav-logo span { color: var(--acid); }
+
+.content { max-width: 720px; margin: 0 auto; padding: 5rem 2rem 6rem; }
+
+.page-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 3.5rem; text-transform: uppercase; color: var(--white); line-height: 0.9; margin-bottom: 0.5rem; }
+.page-title span { color: var(--acid); }
+.updated { font-family: 'DM Mono', monospace; font-size: 0.72rem; color: var(--grey-light); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid var(--grey-mid); }
+
+/* Contact card */
+.contact-card { background: var(--grey); border: 1px solid var(--grey-mid); border-left: 3px solid var(--acid); padding: 1.75rem 2rem; margin-bottom: 3.5rem; display: flex; align-items: flex-start; gap: 1.5rem; }
+.contact-icon { font-size: 1.75rem; flex-shrink: 0; margin-top: 2px; }
+.contact-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--white); margin-bottom: 0.4rem; }
+.contact-text { font-size: 0.95rem; color: var(--grey-light); margin-bottom: 0.75rem; }
+.contact-link { display: inline-block; background: var(--acid); color: var(--black); font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 0.95rem; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.6rem 1.25rem; text-decoration: none; transition: background 0.15s; }
+.contact-link:hover { background: #d4e800; }
+
+/* FAQ */
+.section-label { font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.15em; color: var(--acid); text-transform: uppercase; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem; }
+.section-label::before { content: ''; width: 2rem; height: 1px; background: var(--acid); }
+
+.faq-item { border-bottom: 1px solid var(--grey-mid); padding: 1.5rem 0; }
+.faq-item:first-of-type { border-top: 1px solid var(--grey-mid); }
+.faq-q { font-family: 'Barlow', sans-serif; font-weight: 600; font-size: 1rem; color: var(--white); margin-bottom: 0.75rem; cursor: pointer; display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; }
+.faq-q .arrow { color: var(--acid); font-size: 1.1rem; flex-shrink: 0; transition: transform 0.2s; margin-top: 1px; }
+.faq-q.open .arrow { transform: rotate(90deg); }
+.faq-a { font-size: 0.95rem; color: var(--grey-light); line-height: 1.7; display: none; }
+.faq-a.visible { display: block; }
+.faq-a strong { color: var(--white); }
+.faq-a a { color: var(--acid); }
+
+/* Known issues */
+.issue { background: var(--grey); border: 1px solid var(--grey-mid); padding: 1.1rem 1.4rem; margin-bottom: 0.75rem; }
+.issue-title { font-weight: 600; font-size: 0.95rem; color: var(--white); margin-bottom: 0.3rem; display: flex; align-items: center; gap: 0.5rem; }
+.issue-title .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--acid); flex-shrink: 0; }
+.issue-desc { font-size: 0.88rem; color: var(--grey-light); line-height: 1.6; }
+
+footer { border-top: 1px solid var(--grey-mid); padding: 2rem 2.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.footer-logo { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 1.1rem; color: var(--white); text-decoration: none; }
+.footer-logo span { color: var(--acid); }
+.footer-links { display: flex; gap: 1.5rem; }
+.footer-links a { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--grey-light); text-decoration: none; letter-spacing: 0.06em; }
+.footer-links a:hover { color: var(--white); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Get<span>Unstuck</span></a>
+</nav>
+
+<div class="content">
+
+  <div class="page-title">Support<br><span>&amp; Help</span></div>
+  <div class="updated">GetUnstuck v0.0.7 · Beta</div>
+
+  <!-- Contact -->
+  <div class="contact-card">
+    <div class="contact-icon">✉️</div>
+    <div>
+      <div class="contact-title">Get in touch</div>
+      <div class="contact-text">Bug, question, or feedback — email us directly. We respond within 24 hours during beta.</div>
+      <a href="mailto:hello@getunstuck.io" class="contact-link">hello@getunstuck.io →</a>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="section-label">Common Questions</div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggle(this)">
+      The balloon isn't appearing. What's wrong?
+      <span class="arrow">›</span>
+    </div>
+    <div class="faq-a">
+      <p>A few things to check:</p>
+      <ul style="margin: 0.5rem 0 0.5rem 1.25rem; color: var(--grey-light);">
+        <li style="margin-bottom:0.4rem">The extension needs at least <strong>3 prompts</strong> in a conversation before it starts analysing</li>
+        <li style="margin-bottom:0.4rem">Make sure the extension is enabled — click the GetUnstuck icon in your Chrome toolbar and check the toggle is on</li>
+        <li style="margin-bottom:0.4rem">Try refreshing the page after installing</li>
+        <li>If you've already seen the balloon in this session, it won't show again until you start a new conversation</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggle(this)">
+      The balloon fired but I wasn't spiralling. How do I give feedback?
+      <span class="arrow">›</span>
+    </div>
+    <div class="faq-a">
+      Click the <strong>"Nope"</strong> button on the balloon before dismissing it. This logs the false positive and helps us improve detection accuracy. If it keeps firing incorrectly on the same type of conversation, email us with details.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggle(this)">
+      Does GetUnstuck read my conversations?
+      <span class="arrow">›</span>
+    </div>
+    <div class="faq-a">
+      No. GetUnstuck detects <strong>patterns</strong> in your conversation — things like how many new topics are being introduced, whether the same concern keeps resurfacing, whether work is being described as done but not shipped. It does not read, store, or transmit the content of your messages. See the full <a href="privacy.html">privacy policy</a>.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggle(this)">
+      Which platforms does it work on?
+      <span class="arrow">›</span>
+    </div>
+    <div class="faq-a">
+      GetUnstuck currently works on: <strong>ChatGPT</strong> (chatgpt.com), <strong>Claude</strong> (claude.ai), <strong>Gemini</strong> (gemini.google.com), <strong>Perplexity</strong> (perplexity.ai), <strong>Notion</strong>, <strong>Linear</strong>, and Google Docs, Sheets, and Slides. More platforms coming based on beta feedback.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggle(this)">
+      Is it free?
+      <span class="arrow">›</span>
+    </div>
+    <div class="faq-a">
+      Yes — completely free during the beta period. We'll announce any pricing changes well in advance.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggle(this)">
+      How do I uninstall it?
+      <span class="arrow">›</span>
+    </div>
+    <div class="faq-a">
+      Go to <strong>chrome://extensions</strong> in your browser, find GetUnstuck, and click Remove. All locally stored data is deleted when you uninstall.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggle(this)">
+      I'm a developer — where's the source code?
+      <span class="arrow">›</span>
+    </div>
+    <div class="faq-a">
+      The proxy server is open source. You can find it at <a href="https://github.com/priteshvora/getunstuck-proxy" target="_blank">github.com/priteshvora/getunstuck-proxy</a>. The extension source is not currently public but we're considering it.
+    </div>
+  </div>
+
+  <!-- Known issues -->
+  <div class="section-label" style="margin-top: 3rem;">Known Issues in Beta</div>
+
+  <div class="issue">
+    <div class="issue-title"><span class="dot"></span>Fires on debugging conversations</div>
+    <div class="issue-desc">If you're troubleshooting a technical problem across multiple messages and uploading logs, the extension may classify this as a looping pattern. Click Nope to dismiss. Fix coming in a future version.</div>
+  </div>
+
+  <div class="issue">
+    <div class="issue-title"><span class="dot"></span>May miss very subtle paralysis patterns</div>
+    <div class="issue-desc">The extension requires at least 3 prompts and clear signals. Paralysis that develops slowly across many messages may not always be detected.</div>
+  </div>
+
+  <div class="issue">
+    <div class="issue-title"><span class="dot"></span>Only shows once per session</div>
+    <div class="issue-desc">The balloon appears once per conversation session. If you dismiss it and continue spiralling, it won't reappear until you start a new conversation.</div>
+  </div>
+
+</div>
+
+<footer>
+  <a href="index.html" class="footer-logo">Get<span>Unstuck</span></a>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="mailto:hello@getunstuck.io">Contact</a>
+  </div>
+</footer>
+
+<script>
+function toggle(el) {
+  el.classList.toggle('open');
+  const answer = el.nextElementSibling;
+  answer.classList.toggle('visible');
+}
+</script>
+
+</body>
+</html>
