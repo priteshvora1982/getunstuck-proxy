@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GetUnstuck — Stop Spiralling. Start Doing.</title>
+<meta name="description" content="GetUnstuck detects analysis paralysis in real time inside your AI conversations. Stop spiralling, start doing.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;900&family=Barlow:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #080808; --white: #F5F5F0; --acid: #CCFF00;
+    --grey: #1A1A1A; --grey-mid: #2E2E2E; --grey-light: #6B6B6B;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--black); color: var(--white); font-family: 'Barlow', sans-serif; font-size: 1rem; line-height: 1.6; overflow-x: hidden; }
+
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 2.5rem; border-bottom: 1px solid var(--grey-mid); background: rgba(8,8,8,0.92); backdrop-filter: blur(12px); }
+  .nav-logo { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 1.4rem; color: var(--white); text-decoration: none; }
+  .nav-logo span { color: var(--acid); }
+  .nav-badge { font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.1em; color: var(--black); background: var(--acid); padding: 0.3rem 0.8rem; text-transform: uppercase; font-weight: 500; }
+
+  .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 2.5rem 4rem; position: relative; overflow: hidden; }
+  .hero-bg { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(8rem, 22vw, 20rem); line-height: 0.85; color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,0.035); white-space: nowrap; pointer-events: none; user-select: none; }
+  .hero-tag { font-family: 'DM Mono', monospace; font-size: 0.75rem; letter-spacing: 0.15em; color: var(--acid); text-transform: uppercase; margin-bottom: 1.5rem; }
+  .hero h1 { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(3.5rem, 10vw, 8.5rem); line-height: 0.88; letter-spacing: -0.01em; text-transform: uppercase; max-width: 1000px; }
+  .hero h1 em { font-style: normal; color: var(--acid); display: block; }
+  .hero-sub { margin-top: 2rem; font-size: 1.15rem; color: var(--grey-light); max-width: 520px; line-height: 1.5; }
+  .hero-sub strong { color: var(--white); font-weight: 600; }
+  .hero-cta { margin-top: 2.5rem; display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
+  .btn { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--acid); color: var(--black); font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.1rem; letter-spacing: 0.05em; text-transform: uppercase; padding: 1rem 2rem; text-decoration: none; transition: background 0.15s, transform 0.15s; }
+  .btn:hover { background: #d4e800; transform: translateY(-2px); }
+  .btn::after { content: '→'; font-size: 1.1rem; }
+  .hero-note { font-family: 'DM Mono', monospace; font-size: 0.75rem; color: var(--grey-light); }
+
+  .ticker { border-top: 1px solid var(--grey-mid); border-bottom: 1px solid var(--grey-mid); background: var(--grey); overflow: hidden; padding: 0.8rem 0; white-space: nowrap; }
+  .ticker-inner { display: inline-flex; animation: ticker 28s linear infinite; }
+  .ticker-item { font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 0.9rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--grey-light); padding: 0 3rem; }
+  .ticker-item.a { color: var(--acid); }
+  @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  section { padding: 6rem 2.5rem; border-top: 1px solid var(--grey-mid); }
+
+  .section-label { font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.15em; color: var(--acid); text-transform: uppercase; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.75rem; }
+  .section-label::before { content: ''; width: 2rem; height: 1px; background: var(--acid); }
+
+  .problem { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+  .problem h2 { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 0.92; text-transform: uppercase; }
+  .problem h2 .strike { text-decoration: line-through; color: var(--grey-light); }
+  .problem h2 em { font-style: normal; color: var(--acid); }
+  .problem-right p { font-size: 1.1rem; color: var(--grey-light); line-height: 1.7; margin-bottom: 1.25rem; }
+  .problem-right p strong { color: var(--white); }
+
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--grey-mid); }
+  .step { padding: 2.5rem; border-right: 1px solid var(--grey-mid); position: relative; transition: background 0.2s; }
+  .step:last-child { border-right: none; }
+  .step:hover { background: var(--grey); }
+  .step-num { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 3.5rem; color: var(--grey-mid); line-height: 1; margin-bottom: 1.25rem; display: block; }
+  .step h3 { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.3rem; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.75rem; }
+  .step p { font-size: 0.92rem; color: var(--grey-light); line-height: 1.6; }
+  .step-line { position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--acid); transform: scaleX(0); transform-origin: left; transition: transform 0.3s; }
+  .step:hover .step-line { transform: scaleX(1); }
+
+  .waitlist-section { background: var(--grey); text-align: center; padding: 8rem 2.5rem; }
+  .waitlist-section h2 { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(3rem, 7vw, 6rem); text-transform: uppercase; line-height: 0.88; margin-bottom: 1.25rem; }
+  .waitlist-section h2 em { font-style: normal; color: var(--acid); display: block; }
+  .waitlist-section p { color: var(--grey-light); font-size: 1.1rem; max-width: 400px; margin: 0 auto 2.5rem; }
+  .waitlist-form { display: flex; max-width: 480px; margin: 0 auto; }
+  .waitlist-input { flex: 1; background: var(--black); border: 1px solid var(--grey-mid); border-right: none; color: var(--white); font-family: 'Barlow', sans-serif; font-size: 0.95rem; padding: 0.9rem 1.25rem; outline: none; }
+  .waitlist-input::placeholder { color: var(--grey-light); }
+  .waitlist-input:focus { border-color: var(--acid); }
+  .waitlist-btn { background: var(--acid); color: var(--black); border: none; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.9rem 1.75rem; cursor: pointer; white-space: nowrap; }
+  .waitlist-btn:hover { background: #d4e800; }
+  .waitlist-note { margin-top: 1rem; font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--grey-light); }
+  .waitlist-success { display: none; font-family: 'Barlow Condensed', sans-serif; font-size: 1.4rem; font-weight: 700; color: var(--acid); text-transform: uppercase; margin-top: 1rem; }
+
+  footer { border-top: 1px solid var(--grey-mid); padding: 2rem 2.5rem; display: flex; justify-content: space-between; align-items: center; }
+  .footer-logo { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 1.1rem; color: var(--white); text-decoration: none; }
+  .footer-logo span { color: var(--acid); }
+  .footer-links { display: flex; gap: 1.5rem; }
+  .footer-links a { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--grey-light); text-decoration: none; letter-spacing: 0.06em; }
+  .footer-links a:hover { color: var(--white); }
+
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.25rem; }
+    section { padding: 4rem 1.25rem; }
+    .hero { padding: 0 1.25rem 3rem; }
+    .problem { grid-template-columns: 1fr; gap: 2.5rem; }
+    .steps { grid-template-columns: 1fr; }
+    .step { border-right: none; border-bottom: 1px solid var(--grey-mid); }
+    .step:last-child { border-bottom: none; }
+    .waitlist-form { flex-direction: column; }
+    .waitlist-input { border-right: 1px solid var(--grey-mid); border-bottom: none; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">Get<span>Unstuck</span></a>
+  <span class="nav-badge">Beta — Free</span>
+</nav>
+
+<section class="hero" style="border-top:none; padding-top:0;">
+  <div class="hero-bg">SPIRAL</div>
+  <div class="hero-tag">Chrome Extension · Works on ChatGPT, Claude, Gemini</div>
+  <h1>You opened AI<br>to get clarity.
+    <em>Not another rabbit hole.</em>
+  </h1>
+  <p class="hero-sub"><strong>GetUnstuck</strong> watches your AI conversations in real time and intervenes the moment you start spiralling — before another hour disappears into options, tabs, and what-ifs.</p>
+  <div class="hero-cta">
+    <a href="#waitlist" class="btn">Join the Beta</a>
+    <span class="hero-note">Free during beta &nbsp;·&nbsp; Chrome only &nbsp;·&nbsp; No account needed</span>
+  </div>
+</section>
+
+<div class="ticker">
+  <div class="ticker-inner">
+    <span class="ticker-item a">Stop Spiralling</span><span class="ticker-item">→ Analysis Paralysis Has a New Home</span>
+    <span class="ticker-item a">Your AI Chat Window</span><span class="ticker-item">→ Real-Time Intervention</span>
+    <span class="ticker-item a">Get Unstuck</span><span class="ticker-item">→ Back to Doing</span>
+    <span class="ticker-item a">Stop Spiralling</span><span class="ticker-item">→ Analysis Paralysis Has a New Home</span>
+    <span class="ticker-item a">Your AI Chat Window</span><span class="ticker-item">→ Real-Time Intervention</span>
+    <span class="ticker-item a">Get Unstuck</span><span class="ticker-item">→ Back to Doing</span>
+  </div>
+</div>
+
+<section>
+  <div class="problem">
+    <div>
+      <div class="section-label">The Problem</div>
+      <h2>AI was supposed to<br><span class="strike">save you time.</span><br>Why are you<br><em>more stuck</em><br>than before?</h2>
+    </div>
+    <div class="problem-right">
+      <p>You open ChatGPT or Claude with one question. <strong>Forty minutes later</strong>, you have seven tabs, three competing frameworks, and a growing suspicion that you've made negative progress.</p>
+      <p>AI doesn't know when to stop giving you options. <strong>That's not a bug — it's how it's built.</strong> Every "what about..." feels helpful in the moment. Together, they create the most productive-feeling way to achieve absolutely nothing.</p>
+      <p>This is analysis paralysis — and it has found a new home inside the tool you use to avoid it.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-label">How It Works</div>
+  <h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(2rem,4vw,3.5rem);text-transform:uppercase;line-height:0.95;margin-bottom:3rem;max-width:600px;">Three steps.<br>One outcome:<br>You're moving again.</h2>
+  <div class="steps">
+    <div class="step">
+      <span class="step-num">01</span>
+      <h3>Install & Forget</h3>
+      <p>Add GetUnstuck to Chrome in 30 seconds. No account, no setup. It runs silently in the background on ChatGPT, Claude, Gemini and more.</p>
+      <div class="step-line"></div>
+    </div>
+    <div class="step">
+      <span class="step-num">02</span>
+      <h3>It Watches, You Think</h3>
+      <p>As you use AI, GetUnstuck reads the pattern of your conversation — detecting the signature signals of an analysis spiral forming before it takes hold.</p>
+      <div class="step-line"></div>
+    </div>
+    <div class="step">
+      <span class="step-num">03</span>
+      <h3>One Nudge. Back to Action.</h3>
+      <p>When a spiral is detected, a single intervention appears inside your conversation. Not a nag — a pattern interrupt. One clear prompt to stop expanding and start deciding.</p>
+      <div class="step-line"></div>
+    </div>
+  </div>
+</section>
+
+<section class="waitlist-section" id="waitlist" style="border-top:1px solid var(--grey-mid);">
+  <div class="section-label" style="justify-content:center;"><span></span>Early Access</div>
+  <h2>Stop spiralling.<em>Start shipping.</em></h2>
+  <p>Join the beta. Free during launch. Be the first to install when we go live on the Chrome Store.</p>
+  <div class="waitlist-form">
+    <input type="email" class="waitlist-input" placeholder="your@email.com" id="email-input">
+    <button class="waitlist-btn" onclick="handleWaitlist()">Get Early Access</button>
+  </div>
+  <div class="waitlist-note">No spam. No pitch. Just the install link when it's ready.</div>
+  <div class="waitlist-success" id="success-msg">✓ You're on the list.</div>
+</section>
+
+<footer>
+  <a href="/" class="footer-logo">Get<span>Unstuck</span></a>
+  <div class="footer-links">
+    <a href="/privacy.html">Privacy Policy</a>
+    <a href="mailto:hello@getunstuck.io">Contact</a>
+  </div>
+</footer>
+
+<script>
+function handleWaitlist() {
+  const email = document.getElementById('email-input').value;
+  if (!email || !email.includes('@')) {
+    document.getElementById('email-input').style.borderColor = '#FF3333';
+    return;
+  }
+  document.querySelector('.waitlist-form').style.display = 'none';
+  document.querySelector('.waitlist-note').style.display = 'none';
+  document.getElementById('success-msg').style.display = 'block';
+}
+</script>
+</body>
+</html>

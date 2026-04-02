@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — GetUnstuck</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Barlow:wght@400;500;600&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+:root { --black: #080808; --white: #F5F5F0; --acid: #CCFF00; --grey: #1A1A1A; --grey-mid: #2E2E2E; --grey-light: #6B6B6B; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--black); color: var(--white); font-family: 'Barlow', sans-serif; font-size: 1rem; line-height: 1.7; }
+nav { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 2.5rem; border-bottom: 1px solid var(--grey-mid); }
+.nav-logo { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 1.4rem; color: var(--white); text-decoration: none; }
+.nav-logo span { color: var(--acid); }
+.content { max-width: 720px; margin: 0 auto; padding: 5rem 2rem 6rem; }
+.page-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 3.5rem; text-transform: uppercase; color: var(--white); line-height: 0.9; margin-bottom: 0.5rem; }
+.page-title span { color: var(--acid); }
+.updated { font-family: 'DM Mono', monospace; font-size: 0.72rem; color: var(--grey-light); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 3.5rem; padding-bottom: 2rem; border-bottom: 1px solid var(--grey-mid); }
+h2 { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.4rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--acid); margin: 2.5rem 0 1rem; }
+p { color: #B0A898; margin-bottom: 1rem; font-size: 0.97rem; }
+ul { color: #B0A898; margin: 0.5rem 0 1rem 1.25rem; font-size: 0.97rem; }
+ul li { margin-bottom: 0.5rem; }
+strong { color: var(--white); font-weight: 600; }
+.highlight { background: var(--grey); border-left: 2px solid var(--acid); padding: 1rem 1.25rem; margin: 1.5rem 0; font-size: 0.92rem; color: #B0A898; }
+a { color: var(--acid); }
+footer { border-top: 1px solid var(--grey-mid); padding: 2rem 2.5rem; display: flex; justify-content: space-between; }
+.footer-logo { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 1.1rem; color: var(--white); text-decoration: none; }
+.footer-logo span { color: var(--acid); }
+.footer-link { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--grey-light); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/index.html" class="nav-logo">Get<span>Unstuck</span></a>
+</nav>
+
+<div class="content">
+  <div class="page-title">Privacy<br><span>Policy</span></div>
+  <div class="updated">Last updated: April 2026</div>
+
+  <div class="highlight">
+    Short version: GetUnstuck does not read, store, or transmit your conversation content. Ever. Your words stay in your browser.
+  </div>
+
+  <h2>What GetUnstuck Does</h2>
+  <p>GetUnstuck is a Chrome extension that detects analysis paralysis patterns in AI conversations on platforms including ChatGPT, Claude, Gemini, and Perplexity. When a pattern is detected, it shows a brief intervention inside your conversation.</p>
+
+  <h2>Data We Do NOT Collect</h2>
+  <ul>
+    <li>We do <strong>not</strong> read, store, or transmit the content of your conversations</li>
+    <li>We do <strong>not</strong> require account creation or login</li>
+    <li>We do <strong>not</strong> track your browsing history or activity</li>
+    <li>We do <strong>not</strong> use cookies, advertising trackers, or analytics scripts</li>
+    <li>We do <strong>not</strong> sell data to any third parties</li>
+    <li>We do <strong>not</strong> know who you are</li>
+  </ul>
+
+  <h2>What Stays in Your Browser</h2>
+  <p>The extension uses Chrome's local storage to store:</p>
+  <ul>
+    <li>A count of how many times the intervention has appeared this week</li>
+    <li>An estimated API usage cost for the current week</li>
+    <li>Whether an intervention has already been shown in the current session</li>
+    <li>If you click "Nope" to flag an incorrect detection, that signal is stored locally</li>
+  </ul>
+  <p>This data never leaves your device unless you explicitly send it.</p>
+
+  <h2>The Proxy Server</h2>
+  <p>For subtle conversation patterns that aren't caught by local rules, the extension sends a request to our proxy server for semantic analysis. This request contains:</p>
+  <ul>
+    <li>The platform hostname (e.g. "chatgpt.com" or "claude.ai")</li>
+    <li>A classification of the detected pattern type</li>
+    <li>A confidence score</li>
+    <li>Your Chrome extension ID (anonymous — not tied to your identity)</li>
+  </ul>
+  <p><strong>It does not contain any prompt text, conversation content, or personally identifiable information.</strong> The proxy server forwards the request to OpenAI's API using our API key and returns the result. Your words never touch our server.</p>
+
+  <h2>The "Nope" Button</h2>
+  <p>When you click "Nope" to flag an incorrect detection, we optionally store the following on our server to help improve accuracy:</p>
+  <ul>
+    <li>Platform (e.g. "claude.ai")</li>
+    <li>Detection type (e.g. "expanding" or "looping")</li>
+    <li>Confidence score</li>
+    <li>Timestamp</li>
+  </ul>
+  <p>No prompt text. No conversation content. No identity information.</p>
+
+  <h2>Third-Party Services</h2>
+  <p>The extension uses <strong>OpenAI's API</strong> (via our proxy server) for semantic analysis of conversation patterns. The data sent to OpenAI is limited to the metadata described above — never conversation content. OpenAI's privacy policy applies to data processed through their API: <a href="https://openai.com/privacy" target="_blank">openai.com/privacy</a></p>
+
+  <h2>Children's Privacy</h2>
+  <p>GetUnstuck is not directed at children under the age of 13 and we do not knowingly collect information from children.</p>
+
+  <h2>Changes to This Policy</h2>
+  <p>If we make material changes to this privacy policy, we will update the "Last updated" date above. Continued use of the extension after changes constitutes acceptance of the revised policy.</p>
+
+  <h2>Contact</h2>
+  <p>Questions about privacy? Email us at <a href="mailto:hello@getunstuck.io">hello@getunstuck.io</a></p>
+
+</div>
+
+<footer>
+  <a href="/index.html" class="footer-logo">Get<span>Unstuck</span></a>
+  <a href="/index.html" class="footer-link">← Back to home</a>
+</footer>
+
+</body>
+</html>
