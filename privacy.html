@@ -7,103 +7,149 @@
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Barlow:wght@400;500;600&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
 <style>
 :root { --black: #080808; --white: #F5F5F0; --acid: #CCFF00; --grey: #1A1A1A; --grey-mid: #2E2E2E; --grey-light: #6B6B6B; }
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { background: var(--black); color: var(--white); font-family: 'Barlow', sans-serif; font-size: 1rem; line-height: 1.7; }
-nav { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 2.5rem; border-bottom: 1px solid var(--grey-mid); }
-.nav-logo { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 1.4rem; color: var(--white); text-decoration: none; }
-.nav-logo span { color: var(--acid); }
-.content { max-width: 720px; margin: 0 auto; padding: 5rem 2rem 6rem; }
-.page-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 3.5rem; text-transform: uppercase; color: var(--white); line-height: 0.9; margin-bottom: 0.5rem; }
-.page-title span { color: var(--acid); }
-.updated { font-family: 'DM Mono', monospace; font-size: 0.72rem; color: var(--grey-light); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 3.5rem; padding-bottom: 2rem; border-bottom: 1px solid var(--grey-mid); }
-h2 { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.4rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--acid); margin: 2.5rem 0 1rem; }
-p { color: #B0A898; margin-bottom: 1rem; font-size: 0.97rem; }
-ul { color: #B0A898; margin: 0.5rem 0 1rem 1.25rem; font-size: 0.97rem; }
-ul li { margin-bottom: 0.5rem; }
-strong { color: var(--white); font-weight: 600; }
-.highlight { background: var(--grey); border-left: 2px solid var(--acid); padding: 1rem 1.25rem; margin: 1.5rem 0; font-size: 0.92rem; color: #B0A898; }
-a { color: var(--acid); }
-footer { border-top: 1px solid var(--grey-mid); padding: 2rem 2.5rem; display: flex; justify-content: space-between; }
-.footer-logo { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: 1.1rem; color: var(--white); text-decoration: none; }
-.footer-logo span { color: var(--acid); }
-.footer-link { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--grey-light); text-decoration: none; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--black);color:var(--white);font-family:'Barlow',sans-serif;line-height:1.7;}
+nav{display:flex;justify-content:space-between;align-items:center;padding:1.25rem 2.5rem;border-bottom:1px solid var(--grey-mid);}
+.nav-logo{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.4rem;color:var(--white);text-decoration:none;}
+.nav-logo span{color:var(--acid);}
+.content{max-width:720px;margin:0 auto;padding:5rem 2rem 6rem;}
+.page-title{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:3.5rem;text-transform:uppercase;color:var(--white);line-height:0.9;margin-bottom:0.5rem;}
+.page-title span{color:var(--acid);}
+.updated{font-family:'DM Mono',monospace;font-size:0.72rem;color:var(--grey-light);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:3rem;padding-bottom:2rem;border-bottom:1px solid var(--grey-mid);}
+h2{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.4rem;text-transform:uppercase;letter-spacing:0.04em;color:var(--acid);margin:2.5rem 0 1rem;}
+h3{font-size:1rem;font-weight:600;color:var(--white);margin:1.5rem 0 0.5rem;}
+p{color:#B0A898;margin-bottom:1rem;font-size:0.97rem;}
+ul{color:#B0A898;margin:0.5rem 0 1rem 1.25rem;font-size:0.97rem;}
+ul li{margin-bottom:0.5rem;}
+strong{color:var(--white);font-weight:600;}
+.highlight{background:var(--grey);border-left:2px solid var(--acid);padding:1rem 1.25rem;margin:1.5rem 0;font-size:0.92rem;color:#B0A898;}
+table{width:100%;border-collapse:collapse;margin:1rem 0 1.5rem;font-size:0.88rem;}
+th{text-align:left;padding:0.6rem 1rem;border-bottom:1px solid var(--grey-mid);font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--grey-light);}
+td{padding:0.75rem 1rem;border-bottom:1px solid var(--grey);color:#B0A898;vertical-align:top;}
+td:first-child{color:var(--white);font-weight:500;width:30%;}
+a{color:var(--acid);}
+footer{border-top:1px solid var(--grey-mid);padding:2rem 2.5rem;display:flex;justify-content:space-between;align-items:center;}
+.footer-logo{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.1rem;color:var(--white);text-decoration:none;}
+.footer-logo span{color:var(--acid);}
+.footer-link{font-family:'DM Mono',monospace;font-size:0.7rem;color:var(--grey-light);text-decoration:none;}
 </style>
 </head>
 <body>
-
-<nav>
-  <a href="index.html" class="nav-logo">Get<span>Unstuck</span></a>
-</nav>
-
+<nav><a href="index.html" class="nav-logo">Get<span>Unstuck</span></a></nav>
 <div class="content">
-  <div class="page-title">Privacy<br><span>Policy</span></div>
-  <div class="updated">Last updated: April 2026</div>
+<div class="page-title">Privacy<br><span>Policy</span></div>
+<div class="updated">Last updated: April 2026 &nbsp;·&nbsp; GetUnstuck Chrome Extension v0.0.7</div>
 
-  <div class="highlight">
-    Short version: GetUnstuck does not read, store, or transmit your conversation content. Ever. Your words stay in your browser.
-  </div>
+<p>This Privacy Policy describes how GetUnstuck collects, handles, stores, and shares information when you use the GetUnstuck Chrome extension. By installing the extension, you agree to this policy.</p>
 
-  <h2>What GetUnstuck Does</h2>
-  <p>GetUnstuck is a Chrome extension that detects analysis paralysis patterns in AI conversations on platforms including ChatGPT, Claude, Gemini, and Perplexity. When a pattern is detected, it shows a brief intervention inside your conversation.</p>
+<div class="highlight">GetUnstuck is designed with privacy as a default. We do not read, store, or transmit the content of your conversations. Your messages never leave your browser.</div>
 
-  <h2>Data We Do NOT Collect</h2>
-  <ul>
-    <li>We do <strong>not</strong> read, store, or transmit the content of your conversations</li>
-    <li>We do <strong>not</strong> require account creation or login</li>
-    <li>We do <strong>not</strong> track your browsing history or activity</li>
-    <li>We do <strong>not</strong> use cookies, advertising trackers, or analytics scripts</li>
-    <li>We do <strong>not</strong> sell data to any third parties</li>
-    <li>We do <strong>not</strong> know who you are</li>
-  </ul>
+<h2>1. Data Collection</h2>
 
-  <h2>What Stays in Your Browser</h2>
-  <p>The extension uses Chrome's local storage to store:</p>
-  <ul>
-    <li>A count of how many times the intervention has appeared this week</li>
-    <li>An estimated API usage cost for the current week</li>
-    <li>Whether an intervention has already been shown in the current session</li>
-    <li>If you click "Nope" to flag an incorrect detection, that signal is stored locally</li>
-  </ul>
-  <p>This data never leaves your device unless you explicitly send it.</p>
+<h3>1a. Data stored locally on your device</h3>
+<p>The extension stores the following in Chrome local storage on your device only:</p>
+<table>
+<thead><tr><th>Data</th><th>Purpose</th><th>Retention</th></tr></thead>
+<tbody>
+<tr><td>Session intervention flag</td><td>Prevents the balloon from showing more than once per session</td><td>Cleared when tab is closed</td></tr>
+<tr><td>Weekly API call count</td><td>Estimates cost shown in the extension popup</td><td>Reset every 7 days</td></tr>
+<tr><td>Nope signal log</td><td>When you click "Incorrect Detection": stores platform hostname, detection type, confidence score, and timestamp locally to identify false positives</td><td>Rolling window of last 200 records</td></tr>
+</tbody>
+</table>
+<p><strong>No conversation content is stored anywhere.</strong> Message text is analysed in memory only and never written to any storage.</p>
 
-  <h2>The Proxy Server</h2>
-  <p>For subtle conversation patterns that aren't caught by local rules, the extension sends a request to our proxy server for semantic analysis. This request contains:</p>
-  <ul>
-    <li>The platform hostname (e.g. "chatgpt.com" or "claude.ai")</li>
-    <li>A classification of the detected pattern type</li>
-    <li>A confidence score</li>
-    <li>Your Chrome extension ID (anonymous — not tied to your identity)</li>
-  </ul>
-  <p><strong>It does not contain any prompt text, conversation content, or personally identifiable information.</strong> The proxy server forwards the request to OpenAI's API using our API key and returns the result. Your words never touch our server.</p>
+<h3>1b. Data sent to our server per analysis request</h3>
+<p>For ambiguous conversation patterns, the extension sends the following to our proxy server:</p>
+<ul>
+<li>Platform hostname (e.g. "chatgpt.com" or "claude.ai")</li>
+<li>Conversation pattern type (e.g. "expanding" or "looping") — a classification label, not message content</li>
+<li>Numerical confidence score</li>
+<li>Chrome extension ID (a randomly assigned anonymous identifier — not linked to your identity or Google account)</li>
+</ul>
+<p><strong>This request contains no message text, conversation content, or personally identifiable information.</strong></p>
 
-  <h2>The "Nope" Button</h2>
-  <p>When you click "Nope" to flag an incorrect detection, we optionally store the following on our server to help improve accuracy:</p>
-  <ul>
-    <li>Platform (e.g. "claude.ai")</li>
-    <li>Detection type (e.g. "expanding" or "looping")</li>
-    <li>Confidence score</li>
-    <li>Timestamp</li>
-  </ul>
-  <p>No prompt text. No conversation content. No identity information.</p>
+<h3>1c. Data sent when you click "Incorrect Detection"</h3>
+<p>Clicking "Incorrect Detection" voluntarily sends to our server:</p>
+<ul>
+<li>Platform hostname</li>
+<li>Detection type and confidence score</li>
+<li>Timestamp</li>
+<li>Chrome extension ID (anonymous)</li>
+</ul>
+<p>No message content is included. Dismissing the balloon without clicking this button sends nothing to our server.</p>
 
-  <h2>Third-Party Services</h2>
-  <p>The extension uses <strong>OpenAI's API</strong> (via our proxy server) for semantic analysis of conversation patterns. The data sent to OpenAI is limited to the metadata described above — never conversation content. OpenAI's privacy policy applies to data processed through their API: <a href="https://openai.com/privacy" target="_blank">openai.com/privacy</a></p>
+<h3>1d. Data we do NOT collect</h3>
+<ul>
+<li>Conversation content or message text of any kind</li>
+<li>Name, email address, or any personally identifiable information</li>
+<li>Google account or browser identity</li>
+<li>Browsing history</li>
+<li>Cookies, advertising identifiers, or tracking pixels</li>
+<li>Location data</li>
+<li>Financial or payment information</li>
+</ul>
 
-  <h2>Children's Privacy</h2>
-  <p>GetUnstuck is not directed at children under the age of 13 and we do not knowingly collect information from children.</p>
+<h2>2. Data Handling</h2>
+<p>When a request is sent to our proxy server:</p>
+<ul>
+<li>The proxy server receives the metadata described in Section 1b</li>
+<li>It forwards the request to OpenAI's API using our server-side API key</li>
+<li>OpenAI returns a classification result (paralysis or healthy)</li>
+<li>The result is returned to the extension</li>
+<li>Only the metadata in Section 1b is logged — no message content at any point</li>
+</ul>
+<p>Rate limiting is applied per extension ID (100 requests/day). This data is used only to enforce the rate limit.</p>
+<p>Nope signal metadata is used exclusively to identify false positive patterns and improve detection accuracy in future versions.</p>
 
-  <h2>Changes to This Policy</h2>
-  <p>If we make material changes to this privacy policy, we will update the "Last updated" date above. Continued use of the extension after changes constitutes acceptance of the revised policy.</p>
+<h2>3. Data Storage</h2>
+<h3>Local storage</h3>
+<p>Data in Section 1a is stored via Chrome's <code>chrome.storage.local</code> API. It remains on your device only, is never synced to Chrome cloud storage, and is permanently deleted when you uninstall the extension.</p>
 
-  <h2>Contact</h2>
-  <p>Questions about privacy? Email us at <a href="mailto:hello@getunstuck.io">hello@getunstuck.io</a></p>
+<h3>Server storage</h3>
+<p>Metadata from Sections 1b and 1c is stored in a PostgreSQL database hosted on Supabase. This database:</p>
+<ul>
+<li>Is access-controlled and not publicly accessible</li>
+<li>Contains no message content or personally identifiable information</li>
+<li>Retains rate limit records for 30 days then deletes them automatically</li>
+<li>Retains Nope signal records for product improvement purposes — these contain no personal data</li>
+</ul>
 
+<h2>4. Data Sharing</h2>
+<p>We share data with the following third parties only:</p>
+<table>
+<thead><tr><th>Third Party</th><th>Data Shared</th><th>Purpose</th><th>Privacy Policy</th></tr></thead>
+<tbody>
+<tr><td>OpenAI</td><td>Conversation pattern metadata only (Section 1b) — no message content</td><td>Semantic classification to detect analysis paralysis patterns</td><td><a href="https://openai.com/privacy" target="_blank">openai.com/privacy</a></td></tr>
+<tr><td>Railway</td><td>Proxy server requests (metadata only)</td><td>Cloud hosting for our proxy server</td><td><a href="https://railway.app/legal/privacy" target="_blank">railway.app/legal/privacy</a></td></tr>
+<tr><td>Supabase</td><td>Rate limit records and Nope signal metadata</td><td>Database hosting</td><td><a href="https://supabase.com/privacy" target="_blank">supabase.com/privacy</a></td></tr>
+</tbody>
+</table>
+<p><strong>We do not sell data to any third party.</strong><br>
+<strong>We do not share data with advertisers or use data for advertising.</strong><br>
+<strong>We do not share data with any party not listed above.</strong></p>
+<p>We may disclose data if required by law. Since we hold no personally identifiable information, any such disclosure would contain only anonymous technical metadata.</p>
+
+<h2>5. Your Rights and Choices</h2>
+<ul>
+<li><strong>Uninstall:</strong> Permanently deletes all locally stored data immediately</li>
+<li><strong>Disable:</strong> You can disable the extension at any time via <code>chrome://extensions</code> — this stops all server calls</li>
+<li><strong>Data deletion:</strong> Since we hold no personally identifiable information, we cannot identify or delete records specific to you. Contact us at <a href="mailto:hello@getunstuck.io">hello@getunstuck.io</a> with any privacy concerns</li>
+</ul>
+
+<h2>6. Children's Privacy</h2>
+<p>GetUnstuck is not directed at children under 13. We do not knowingly collect any information from children under 13. Contact <a href="mailto:hello@getunstuck.io">hello@getunstuck.io</a> if you have concerns.</p>
+
+<h2>7. Changes to This Policy</h2>
+<p>We will update the "Last updated" date when material changes are made. Continued use after changes are posted constitutes acceptance of the revised policy.</p>
+
+<h2>8. Contact</h2>
+<p><strong>Email:</strong> <a href="mailto:hello@getunstuck.io">hello@getunstuck.io</a><br>
+<strong>Product:</strong> GetUnstuck Chrome Extension<br>
+<strong>Developer:</strong> Pritesh Vora</p>
 </div>
-
 <footer>
-  <a href="index.html" class="footer-logo">Get<span>Unstuck</span></a>
-  <a href="index.html" class="footer-link">← Back to home</a>
+<a href="index.html" class="footer-logo">Get<span>Unstuck</span></a>
+<a href="index.html" class="footer-link">← Back to home</a>
 </footer>
-
 </body>
 </html>
